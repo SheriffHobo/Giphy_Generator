@@ -38,7 +38,7 @@ $(function () {
     $("#dog-btn").on("click", function () { // Only works for Beagle, sometimes. But never works for any other pre-loaded, or added buttons
         $('#gif-area').empty();
         var dataName = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&q=" + dataName;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&q=" + dataName;
         console.log(queryURL);
 
         $.ajax({
