@@ -16,3 +16,12 @@ body {
     cursor: url(../images/dalmation.cur), auto!important;
   }
 
+#gif-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#dogpics {
+    border: 5 solid black;
+}
