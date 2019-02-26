@@ -64,7 +64,7 @@ $(function () {
             });
     });
 
-    // PAUSE / UNPAUSE GIFS
+    // STILL/ANIMATE GIFS
     $("#gif-area").on("click", ".dogpics", function() {
         var datastate = $(this).attr("datastate");
         if (datastate === "still") {
