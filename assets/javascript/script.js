@@ -1,7 +1,7 @@
 $(function () {
 
     // VARIABLES
-    var dogBreeds = ['Terrier', 'Saint Bernard', 'Rottweiler', 'Beagle'];
+    var dogBreeds = ['Terrier', 'Shibu Inu', 'Rottweiler', 'Beagle'];
 
     // BUTTON RENDER
     function renderButtons() {
@@ -41,7 +41,7 @@ $(function () {
     // CLEAR PAGE BUTTON
     $("#clear-page").click(function () {
         $('#breed-btns').empty();
-        renderButtons(dogBreeds = ['Terrier', 'Saint Bernard', 'Rottweiler', 'Beagle']);
+        renderButtons(dogBreeds = ['Terrier', 'Shibu Inu', 'Rottweiler', 'Beagle']);
         $('#gif-area').empty();
     });
 
