@@ -6,23 +6,11 @@ body {
     background-attachment: fixed;
 }
 
-#breed-btns {
-    display: flex;
-    margin: 0 auto;
-    flex-direction: column;
-}
-
 * {
     cursor: url(../images/dalmation.cur), auto!important;
   }
 
-#gif-area {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .dogpics {
-    border: 5px solid black;
-    margin: 0 auto;
+    border: 1px solid black;
+    margin: 5px;
 }
