@@ -24,4 +24,5 @@ body {
 
 .dogpics {
     border: 5px solid black;
+    margin: 0 auto;
 }
