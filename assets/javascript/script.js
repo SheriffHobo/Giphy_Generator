@@ -40,7 +40,9 @@ $(function () {
 
     // CLEAR PAGE BUTTON
     $("#clear-page").click(function () {
-        document.location.reload(true);
+        $('#breed-btns').empty();
+        renderButtons(dogBreeds = ['Terrier', 'Saint Bernard', 'Rottweiler', 'Beagle']);
+        $('#gif-area').empty();
     });
 
     // AJAX QUERY
@@ -48,7 +50,7 @@ $(function () {
         $('#gif-area').empty();
         var dataName = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&limit=15&q=dog_" + dataName;
-        console.log(queryURL);
+        // console.log(queryURL);
 
         $.ajax({
             url: queryURL, 
@@ -58,7 +60,13 @@ $(function () {
                 var results = response.data;
                 for (var i = 0; i < results.length; i++) {
                     var dogImage = $("<img>");
-                    dogImage.attr( {class: "dogpics", datastate: "still", src: results[i].images.fixed_height_still.url, datastill: results[i].images.fixed_height_still.url, dataanimate: results[i].images.fixed_height.url} );
+                    dogImage.attr( {
+                    class: "dogpics", 
+                    datastate: "still", 
+                    src: results[i].images.fixed_height_still.url, 
+                    datastill: results[i].images.fixed_height_still.url, 
+                    dataanimate: results[i].images.fixed_height.url
+                } );
                     $("#gif-area").prepend(dogImage);
                 };
             });
