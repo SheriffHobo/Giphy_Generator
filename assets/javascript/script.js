@@ -57,13 +57,23 @@ $(function () {
             .then(function (response) {
                 var results = response.data;
                 for (var i = 0; i < results.length; i++) {
-                    // var gifDiv = $("<div>");
                     var dogImage = $("<img>");
-                    dogImage.attr("class", "dogpics");
-                    dogImage.attr("src", results[i].images.fixed_height.url);
-                    // gifDiv.prepend(dogImage);
+                    dogImage.attr( {class: "dogpics", datastate: "still", src: results[i].images.fixed_height_still.url, datastill: results[i].images.fixed_height_still.url, dataanimate: results[i].images.fixed_height.url} );
                     $("#gif-area").prepend(dogImage);
                 };
             });
     });
+
+    // PAUSE / UNPAUSE GIFS
+    $("#gif-area").on("click", ".dogpics", function() {
+        var datastate = $(this).attr("datastate");
+        if (datastate === "still") {
+          $(this).attr("src", $(this).attr("dataanimate"));
+          $(this).attr("datastate", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("datastill"));
+          $(this).attr("datastate", "still");
+        }
+      });
+    
 });
