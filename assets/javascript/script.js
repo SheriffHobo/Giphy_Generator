@@ -2,6 +2,7 @@ $(function () {
 
     // VARIABLES
     var dogBreeds = ['Terrier', 'Shibu Inu', 'Rottweiler', 'Beagle'];
+    var authK = 'OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis';
 
     // BUTTON RENDER
     function renderButtons() {
@@ -49,7 +50,7 @@ $(function () {
     $("#breed-btns").on("click", ".dog-btn", function () {
         $('#gif-area').empty();
         var dataName = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&limit=15&q=dog_" + dataName;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + authK + "&rating=g&limit=15&q=dog_" + dataName;
         // console.log(queryURL);
 
         $.ajax({
