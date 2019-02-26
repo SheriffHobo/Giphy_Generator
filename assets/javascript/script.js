@@ -47,7 +47,7 @@ $(function () {
     $("#breed-btns").on("click", ".dog-btn", function () {
         $('#gif-area').empty();
         var dataName = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&q=dog_" + dataName;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&limit=15&q=dog_" + dataName;
         console.log(queryURL);
 
         $.ajax({
