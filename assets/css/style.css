@@ -22,6 +22,6 @@ body {
     flex-wrap: wrap;
 }
 
-#dogpics {
-    border: 5 solid black;
+.dogpics {
+    border: 5px solid black;
 }

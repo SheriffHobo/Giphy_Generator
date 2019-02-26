@@ -8,7 +8,7 @@ $(function () {
         $('#breed-btns').empty();
         dogBreeds.forEach(breed => {
             var buttons = $('<button>').text(breed);
-            buttons.attr("id", "dog-btn");
+            buttons.attr("class", "dog-btn");
             buttons.attr("data-name", breed.replace(/ /g, "_"));
             $('#breed-btns').prepend(buttons);
         });
@@ -22,12 +22,21 @@ $(function () {
             return;
         } else {
             dogBreeds.push(userInput);
-            $('#needbreedfield').val('');
+            $('#newbreedfield').val('');
         };
         renderButtons();
     });
 
     renderButtons();
+
+    // DO NOT ALLOW NUMBERS AS INPUT
+    $('#newbreedfield').on("keypress", function (e) {
+        var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        var charStr = String.fromCharCode(charCode);
+        if (/\d/.test(charStr)) {
+            return false;
+        }
+    });
 
     // CLEAR PAGE BUTTON
     $("#clear-page").click(function () {
@@ -35,7 +44,7 @@ $(function () {
     });
 
     // AJAX QUERY
-    $("#dog-btn").on("click", function () { // Only works for Beagle, sometimes. But never works for any other pre-loaded, or added buttons
+    $("#breed-btns").on("click", ".dog-btn", function () {
         $('#gif-area').empty();
         var dataName = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=OQyMsj80Q5Vaeop0ry2jPaOAFqI8Isis&rating=g&q=" + dataName;
@@ -48,17 +57,13 @@ $(function () {
             .then(function (response) {
                 var results = response.data;
                 for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $("<div>");
+                    // var gifDiv = $("<div>");
                     var dogImage = $("<img>");
-                    dogImage.attr("id", "dogpics"); // Adds an ID to each gif, but the CSS doesnt come through
+                    dogImage.attr("class", "dogpics");
                     dogImage.attr("src", results[i].images.fixed_height.url);
-                    gifDiv.prepend(dogImage);
-                    $("#gif-area").prepend(gifDiv);
+                    // gifDiv.prepend(dogImage);
+                    $("#gif-area").prepend(dogImage);
                 };
             });
     });
 });
-
-    // Need a way to clear the breed field when Add is clicked
-
-    // Do nothing if numbers are entered
